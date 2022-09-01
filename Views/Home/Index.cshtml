@@ -1,0 +1,78 @@
+﻿@model Tbl_Address
+
+<div class="row text-center">
+
+    
+            
+
+
+
+<p class="alert alert-primary"> please enter your information </p>
+
+<form action="/home/add" method="get">
+
+<input type="text" asp-for="lat" required placeholder="latitute" >
+
+<input type="text"  asp-for="longt" required placeholder="longtitute">
+
+<input type="number" asp-for="address" required placeholder="address">
+
+<button type="submit" class="btn btn-success" > save </button>
+
+
+</form>
+
+
+</div>
+
+<div class="text-center row">
+
+<table class="table table-striped" style="margin-top:30PX ;" >
+    <tr>
+<th>row</th>
+<th>latitute</th>
+<th>longtitute</th>
+<th>address</th>
+</tr>
+
+@if (ViewBag.B != null)
+{
+    @foreach (var item in ViewBag.B)
+{
+    int i = 1; 
+    <tr>
+<td>@i </td>
+<td>@item.lat</td>
+<td>@item.longt</td>
+<td>@item.address</td>
+
+
+</tr>
+
+i++;
+}
+}
+
+
+
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<style>
+    #mapid { height: 500px; }
+</style>
+
+<div id="mapid"></div>
